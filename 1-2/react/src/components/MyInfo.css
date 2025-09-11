@@ -1,0 +1,28 @@
+.my-info {
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid #4caf50;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.my-info h1 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.my-info h2 {
+  color: #388e3c;
+  margin-top: 15px;
+}
+
+.my-info p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.my-info ul,
+.my-info ol {
+  margin-left: 20px;
+}
