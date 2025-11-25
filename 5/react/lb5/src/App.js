@@ -77,28 +77,31 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://api.agify.io/?name=ihor")
-      .then((res) => setAgeOnLoad(res.data))
-      .catch((err) => setError(err.message));
+    const fetchOnLoad = async () => {
+      try {
+        const res = await axios.get("https://api.agify.io/?name=ihor");
+        setAgeOnLoad(res.data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchOnLoad();
   }, []);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (!nameInput) return;
-    axios
-      .get(`https://api.agify.io/?name=${nameInput}`)
-      .then((res) => setAgeOnClick(res.data))
-      .catch((err) => setError(err.message));
+
+    try {
+      const res = await axios.get(`https://api.agify.io/?name=${nameInput}`);
+      setAgeOnClick(res.data);
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"
-      }}
-    >
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <h1>Робота з API (Axios)</h1>
 
       <h2>Дані при завантаженні сторінки:</h2>
